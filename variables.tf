@@ -1,5 +1,5 @@
 variable "project_name" {
-  default = "ecs-microservice"
+  default = "terraform-ecs-microservice"
 }
 
 variable "region" {
