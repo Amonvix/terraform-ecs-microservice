@@ -8,8 +8,8 @@ resource "aws_ecs_task_definition" "app_task" {
 
   container_definitions = jsonencode([
     {
-      name      = "api"
-      image     = "tiangolo/uvicorn-gunicorn-fastapi:python3.9"
+      name      = "ecs-java-crud"
+      image = "\${var.account_id}.dkr.ecr.us-east-1.amazonaws.com/ecs-java-crud:latest"
       cpu       = 128
       memory    = 256
       essential = true
@@ -22,15 +22,15 @@ resource "aws_ecs_task_definition" "app_task" {
       ]
     },
     {
-      name      = "redis"
-      image     = "redis:7-alpine"
+      name      = "titanic-fastapi-ecs"
+      image = "\${var.account_id}.dkr.ecr.us-east-1.amazonaws.com/titanic-fastapi-ecs:latest"
       cpu       = 64
       memory    = 128
       essential = false
     },
     {
-      name      = "worker"
-      image     = "python:3.9-slim"
+      name      = "crud-ecs-python"
+      image = "\${var.account_id}.dkr.ecr.us-east-1.amazonaws.com/crud-ecs-python:latest"
       cpu       = 128
       memory    = 256
       essential = false
