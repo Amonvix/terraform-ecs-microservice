@@ -6,8 +6,8 @@ resource "aws_ecs_service" "main" {
   desired_count   = 1
 
   network_configuration {
-    subnets          = aws_subnet.public[*].id
-    security_groups  = [aws_security_group.ecs_sg.id]
+    subnets          = var.subnet_ids
+    security_groups  = [aws_security_group.app_sg.id]
     assign_public_ip = true
   }
 
