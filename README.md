@@ -1,86 +1,89 @@
-# 🚀 Terraform ECS Microservice Infrastructure
+# ✨ AWS Terraform ECS Microservices Suite
 
-Professional and modular provisioning of a full AWS infrastructure to run **three independent containers**, using **Terraform**, **Docker**, and **Fargate only**. This setup is focused on **low cost**, **maintainability**, and **production readiness**.
-
----
-
-## 📦 Project Structure & Highlights
-
-### 🧠 1. Core Logic (main.tf)
-- [x] Clean and well-documented entry point with English technical comments
-- [x] Loads all availability zones dynamically for resilience
-- [x] Clear modular file separation and structure description
-- [x] Ideal for onboarding and quick understanding of the setup
+> _"Automate with precision. Deploy with elegance. Dream in YAML, execute in JSON, and document in Markdown."_
+> — GG, DevOps Philosopher
 
 ---
 
-### 🌐 2. Network Layer (vpc.tf)
-- [x] Custom VPC creation
-- [x] Public and private subnets across multiple AZs
-- [x] Routing tables and NAT gateway properly configured
-- [x] High availability and security-first layout
+## 🌐 Overview
+
+This project provisions a **complete AWS infrastructure** to deploy **three isolated microservices** using **Docker, ECS Fargate, and Terraform only**.
+
+No manual setup. No fragile hacks. Just pure Infrastructure as Code — scalable, reproducible, and production-ready.
 
 ---
 
-### 📡 3. ECS Cluster (cluster.tf)
-- [x] Fargate-powered ECS cluster
-- [x] Designed for horizontal scaling and service separation
-- [x] Fully managed and stateless setup
+## 🧱 Architecture Overview
+
+**Terraform (IaC)** + **Dockerized Services** + **ECS Fargate**
+
+┌────────────┐ ┌─────────────┐ ┌────────────────────┐
+│ VPC + SG │──────▶│ ALB │──────▶│ 3 Microservices │
+└────────────┘ └─────────────┘ └────────────────────┘
+▲
+Provisioned by Terraform
 
 ---
 
-### 🔐 4. Security & IAM (security.tf, roles.tf)
-- [x] Dedicated security groups per resource (ECS, ALB, DB, etc.)
-- [x] Fine-grained IAM roles for ECS task execution
-- [x] Ready for secure integration with AWS Systems Manager (SSM)
+## 🔥 Live Services
+
+| Service                   | Description                            | Public URL                                                 |
+| ------------------------- | -------------------------------------- | ---------------------------------------------------------- |
+| 🛳️ **Titanic Survival**   | ML model predicting passenger survival | [http://100.26.100.119:8001/](http://100.26.100.119:8001/) |
+| ⚙️ **FastAPI CRUD**       | Python-based CRUD using FastAPI        | [http://100.26.100.119:8002/](http://100.26.100.119:8002/) |
+| ☕ **Java CRUD (Spring)** | Java CRUD app with Spring Boot         | [http://100.26.100.119:8080/](http://100.26.100.119:8080/) |
 
 ---
 
-### 🐳 5. Containers & Tasks (task_definitions.tf)
-- [x] Modular task definitions for three independent Docker apps
-- [x] Easily extendable for multi-env or additional services
-- [x] Prepared for ECR integration or local Docker image references
+## 📦 Infrastructure Modules
+
+- `main.tf` → Clean entrypoint with technical documentation
+- `vpc.tf` → Custom VPC, subnets, NAT, routing tables
+- `cluster.tf` → ECS Fargate Cluster (scalable & stateless)
+- `security.tf` & `roles.tf` → Fine-tuned IAM roles and Security Groups
+- `task_definitions.tf` → Independent Dockerized service specs
+- `service.tf` → ECS services behind ALB with health checks & autoscaling
 
 ---
 
-### ⚙️ 6. Services & Load Balancing (service.tf)
-- [x] ECS services wired to an ALB for traffic management
-- [x] Health checks, scaling, and failure recovery enabled
-- [x] Ready for zero-downtime deployments (blue/green supported)
+## 🚀 Quick Start
 
----
+```bash
+terraform init
+terraform apply
+The entire infrastructure — VPC, ALB, ECS, and services — comes online with a single command.
 
-### 📤 7. Outputs & Customization
-- [x] Export key resources (DNS, subnets, cluster name, etc.)
-- [x] Variable declaration organized and environment-agnostic
-- [x] Compatible with workspaces and multi-stage pipelines
+🔧 Tech Stack
+    Terraform (0.15+)
 
----
+    Docker
 
-## 🎯 Purpose
+    AWS ECS Fargate
 
-> Build a **fully managed AWS environment** capable of running **three Dockerized microservices** with zero manual steps, focusing on scalability, cost optimization, and a clean IaC approach.
+    ALB, IAM, SSM, SG, VPC
 
----
+    GitHub Flow
 
-## 🧰 Technologies Used
+    ✅ Project Status
 
-- **Terraform** (Infrastructure as Code)
-- **AWS ECS Fargate**
-- **Docker**
-- **ALB, IAM, VPC, SSM, SG**
-- **Git & GitHub Flow**
+    ✅ AWS infrastructure fully provisioned
 
----
+    ✅ All 3 containers running live
 
-## 📌 Project Status
+    ✅ URLs publicly available and tested
 
-✔️ Infrastructure ready and deployed  
-⚙️ Docker images in build phase  
-📦 Next step: Deploy and test 3 isolated services  
+    🛠️ Ready for monitoring, logging, and CI/CD
 
----
+    🤝 Contributions
+This project is more than code. It’s a declaration of clean DevOps.
+Feel free to fork, suggest improvements, or use it as inspiration for your own infrastructure journey.
 
-## 🤝 Contributions
+“Infrastructure is not just architecture. It's intention made executable.”
 
-This project was designed to demonstrate practical skills in IaC and DevOps principles. Feedback and improvements are welcome!
+📬 Contact
+Built with passion by Daniel Pedroso
+📧 Email: hspedroso@gmail.com
+🌐 LinkedIn -> www.linkedin.com/in/daniel-alexandre-pedroso-49993934
+
+
+
